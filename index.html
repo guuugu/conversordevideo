@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conversor de Vídeo para Áudio</title>
+</head>
+<body>
+    <h1>Conversor de Vídeo para Áudio</h1>
+    
+    <!-- Formulário para selecionar um arquivo de vídeo -->
+    <form>
+        <input type="file" id="videoInput" accept="video/*" />
+        <button type="button" id="convertButton">Converter para Áudio</button>
+    </form>
+
+    <!-- Área para exibir o resultado -->
+    <div id="output"></div>
+    
+    <script>
+        document.getElementById('convertButton').addEventListener('click', function() {
+            const videoInput = document.getElementById('videoInput');
+            const output = document.getElementById('output');
+
+            if (videoInput.files.length === 0) {
+                output.textContent = 'Por favor, selecione um arquivo de vídeo.';
+                return;
+            }
+
+            const videoFile = videoInput.files[0];
+            const fileName = videoFile.name;
+            const fileExtension = fileName.split('.').pop();
+
+            if (fileExtension.toLowerCase() !== 'mp4') {
+                output.textContent = 'Por favor, selecione um arquivo de vídeo MP4.';
+                return;
+            }
+
+            // Simule a conversão (substitua esta parte pelo código real de conversão)
+            setTimeout(function() {
+                output.textContent = `Arquivo de áudio gerado com sucesso a partir de ${fileName}.`;
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
